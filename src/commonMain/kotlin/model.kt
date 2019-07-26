@@ -6,12 +6,18 @@ data class Notebook(val title: String, val notes: MutableList<Note>)
 class NotebookStore {
     val notebooks = mutableListOf<Notebook>()
 
-    fun createNotebook(title: String): Boolean {
+    fun createNotebook(title: String): Notebook {
         val notebook = Notebook(title, mutableListOf())
-        return notebooks.add(notebook)
+        notebooks.add(notebook)
+        return notebook
     }
 
-    fun deteNotebook(notebook: Notebook): Boolean {
+    fun deleteNotebook(notebook: Notebook): Boolean {
         return notebooks.remove(notebook)
     }
+
+    fun getNotebook(index: Int): Notebook{
+        return notebooks.get(index)
+    }
+
 }
